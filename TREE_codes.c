@@ -173,6 +173,24 @@ int countLeafNodes(Node *root)
     return countLeafNodes(root->left) + countLeafNodes(root->right);
 }
 
+void mirrorTree(Node *root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
+
+    // Swap left and right subtrees
+    Node *temp = root->left;
+    root->left = root->right;
+    root->right = temp;
+
+    // Recursively mirror left and right subtrees
+    mirrorTree(root->left);
+    mirrorTree(root->right);
+}
+
+
 int main(){
     Node *root = create(10);
     insert(root, 20);
