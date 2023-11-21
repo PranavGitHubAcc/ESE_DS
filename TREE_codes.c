@@ -159,6 +159,20 @@ int countNodes(Node *root)
     return 1 + countNodes(root->left) + countNodes(root->right);
 }
 
+int countLeafNodes(Node *root)
+{
+    if (root == NULL)
+    {
+        return 0;
+    }
+    if (root->left == NULL && root->right == NULL)
+    {
+        // Node is a leaf node
+        return 1;
+    }
+    return countLeafNodes(root->left) + countLeafNodes(root->right);
+}
+
 int main(){
     Node *root = create(10);
     insert(root, 20);
