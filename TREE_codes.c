@@ -130,6 +130,26 @@ int areEqualTrees(Node *tree1, Node *tree2)
            areEqualTrees(tree1->right, tree2->right);
 }
 
+int areEqualTrees(Node *tree1, Node *tree2)
+{
+    // Base cases: if both trees are empty, they are equal
+    if (tree1 == NULL && tree2 == NULL)
+    {
+        return 1;
+    }
+    
+    // If one of the trees is empty and the other is not, they are not equal
+    if (tree1 == NULL || tree2 == NULL)
+    {
+        return 0;
+    }
+
+    // Check if the current nodes are equal and recursively check left and right subtrees
+    return (tree1->data == tree2->data) &&
+           areEqualTrees(tree1->left, tree2->left) &&
+           areEqualTrees(tree1->right, tree2->right);
+}
+
 int main(){
     Node *root = create(10);
     insert(root, 20);
