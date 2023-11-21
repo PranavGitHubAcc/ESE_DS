@@ -72,6 +72,20 @@ Node* deleteNode(Node *root, int data){
     return root;
 }
 
+Node *copyTree(Node *source)
+{
+    if (source == NULL)
+    {
+        return NULL;
+    }
+
+    Node *newNode = create(source->data);
+    newNode->left = copyTree(source->left);
+    newNode->right = copyTree(source->right);
+
+    return newNode;
+}
+
 int searchItter(Node *root, int data){
     while(root!=NULL){
         if(root->data == data){
