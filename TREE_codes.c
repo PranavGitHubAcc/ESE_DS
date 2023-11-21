@@ -150,6 +150,15 @@ int areEqualTrees(Node *tree1, Node *tree2)
            areEqualTrees(tree1->right, tree2->right);
 }
 
+int countNodes(Node *root)
+{
+    if (root == NULL)
+    {
+        return 0;
+    }
+    return 1 + countNodes(root->left) + countNodes(root->right);
+}
+
 int main(){
     Node *root = create(10);
     insert(root, 20);
