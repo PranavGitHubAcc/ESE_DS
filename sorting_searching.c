@@ -1,3 +1,4 @@
+//  insertion sort itterative and reccursive.
 #include <stdio.h>
 #include <string.h>
 
@@ -54,7 +55,7 @@ void binary_search_itter(int arr[], int size, int key){
 }
 
 void binary_search_reccur(int arr[], int size, int key, int lb, int ub){
-    if(lb<ub){
+    if(lb<=ub){
         int mid = (lb+ub)/2;
         if(arr[mid]==key){
             printf("Element found at position %d", mid+1);
@@ -87,7 +88,7 @@ void bubble_sort(int arr[], int size){
 }
 
 void bubble_reccur(int arr[], int size, int itter){
-    if(itter<size-1){
+    if(itter<size){
         for(int j = 0; j<size-itter-1; j++){
             if(arr[j+1]>arr[j]){
                 swap(&arr[j+1], &arr[j]);
@@ -113,7 +114,7 @@ void selection(int arr[], int size){
 }
 
 void selection_reccur(int arr[], int size, int itter){
-    if(itter<size-1){
+    if(itter<size){
         int min = itter;
         for(int j = itter+1; j<size-1; j++){
             if(arr[min]>arr[j]){
