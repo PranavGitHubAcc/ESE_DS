@@ -120,10 +120,10 @@ void selection_reccur(int arr[], int size, int itter){
             if(arr[min]>arr[j]){
                 min = j;
             }
-            if(min != itter){
+        }
+        if(min != itter){
                 swap(&arr[itter], &arr[min]);
             }
-        }
         selection_reccur(arr, size, itter+1);
     }
     return;
